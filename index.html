@@ -8,10 +8,16 @@
            height: 100%;
 	}
 	html {height: 100%;}
-	p {color:red;}
+	p {color:red;
+       font-size: 23px;
+ /*      position: absolute;*/
+/*       width: 100%;*/
+       text-align: center;
+	}
     @keyframes shiyan {
-     from{color: rgba(255,255,255,0);}
-     to{opacity: rgba(255,255,255,100);}
+     0%{color: rgba(255,255,255,0);}
+     50%{color: rgba(255,255,255,100);}
+     100%{color: rgba(255,255,255,0);}
     }
     h1,p{animation: shiyan 5s infinite}
          
@@ -22,7 +28,7 @@
 <p>ssadsadsadasdadasd</p>
 <h1>sssssssss</h1>
 <img src="./images/t.jpg"/>
-<audio src="audio/bgm.mp3" controls="controls" autoplay="autoplay">
+<audio src="audio/bgm.mp3" controls="controls" autoplay="autoplay" loop="loop">
 	
 </audio>
 
