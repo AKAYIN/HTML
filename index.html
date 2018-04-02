@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>轮播实践</title>
+<link rel="stylesheet" type="text/css" href="css/lunbo.css">
+</head>
+<body>
+<div class="box">
+	<div class="dian">
+		<ul>
+			<li class="active"></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+	<div class="tu">
+		<ul>
+		    <li><img src="img/01.jpg"/></li>
+            <li><img src="img/02.jpg"/></li>
+            <li><img src="img/03.jpg"/></li>
+            <li><img src="img/04.jpg"/></li>
+            <li><img src="img/05.jpg"/></li>
+        </ul>
+	</div>
+<div class="jiantouzuo"><img src="img/arrowl.png"></div>
+<div class="jiantouyou"><img src="img/arrowr.png"></div>
+
+</div>
+</body>
+<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript">
+		$(".dian li").mouseover(function(){
+			clearInterval(timeplay);
+			index=$(this).index();
+			$(this).addClass("active").siblings().removeClass("active");
+			$(".tu ul").animate({left:-_wid*index});
+		}).mouseout(function(){
+			time=index;
+			shijian();
+		});
+		shijian();
+        var time=0;
+        var _wid=640;
+		function shijian(){
+               
+                timeplay=setInterval(function(){
+                   
+                   if(time++<4){
+                   	
+               	  $(".dian li").eq(time).addClass("active").siblings().removeClass("active");
+                  $(".tu ul").animate({left:-_wid*time}); 
+                  ;
+                  
+              }
+                  else{ 
+                  $(".dian li").eq(0).addClass("active").siblings().removeClass("active");
+                  $(".tu ul").animate({left:"0px"}); 
+                  time=0;      	              	
+                 
+                  }
+                },2300);
+
+		}
+		$(".jiantouzuo img").mouseover(function(){
+			clearInterval(timeplay);
+		})
+		$(".jiantouyou img").mouseover(function(){
+			clearInterval(timeplay);
+		})
+		$(".jiantouzuo img").click(function(){
+			// alert("s");
+			time--;
+			
+			if (time!=-1) {
+               	  $(".dian li").eq(time).addClass("active").siblings().removeClass("active");
+                  $(".tu ul").animate({left:-_wid*time});}else{time=4;
+                  	$(".dian li").eq(time).addClass("active").siblings().removeClass("active");
+                  $(".tu ul").animate({left:-_wid*time}); 
+                
+                  	
+                  }
+
+		}).mouseout(function(){
+			// time=index;
+			shijian();
+		});
+		$(".jiantouyou img").click(function(){
+			time++;
+			
+               	  if (time!=5) {
+               	  $(".dian li").eq(time).addClass("active").siblings().removeClass("active");
+                  $(".tu ul").animate({left:-_wid*time});}else{time=0;
+                  $(".dian li").eq(time).addClass("active").siblings().removeClass("active");
+                  $(".tu ul").animate({left:-_wid*time}); 
+                  }
+		}).mouseout(function(){
+			// time=index;
+			shijian();
+			});		
+	
+</script>
+</html>

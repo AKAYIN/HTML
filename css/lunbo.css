@@ -1,0 +1,12 @@
+*{padding: 0;margin: 0;}
+body{background-color: #ccc;}
+.box{width: 640px;height: 480px;margin-left: 25%;margin-top: 4%; overflow: hidden;position: relative;}
+.box .tu ul{width: 500%;position: absolute;}
+.box .tu ul li{list-style: none;float: left;}	
+.box .dian ul{width: 160px;position: absolute;left:245px;bottom:15px;text-align: center;z-index:3}
+.box .dian ul li{float: left;width: 20px;border: 1px solid white;height: 20px;list-style: none;border-radius: 100%;margin-left: 5px;}
+.active{background-color: white;}
+.box .jiantouzuo,.jiantouyou{position: absolute;top: 240px;}
+.box .jiantouzuo :hover{background-color: rgba(0,0,0,0.5);}
+.box .jiantouyou :hover{background-color: rgba(0,0,0,0.5);}
+.box .jiantouyou{right: 0px;}

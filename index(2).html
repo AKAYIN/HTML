@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>s</title>
+	<style type="text/css">
+	    *{margin: 0px;padding: 0px;}
+		.list {height:480px;width: 640px;overflow: hidden;position: relative; }
+		 ul{width: 200px;height: 30px;position: absolute;padding-top: 60px;bottom: 0;right:-30px;}
+		.list .biaoji li{float: left;width: 20px;height: 20px; border: 1px solid white; border-radius:10px ;list-style: none;line-height: 20px ;text-align: center;margin-left:5px;           
+		}
+		.list .jiantouzuo,.jiantouyou{position: absolute;top: 240px;}
+		.list .jiantouzuo :hover{background-color: rgba(0,0,0,0.5);}
+		.jiantouyou :hover{background-color: rgba(0,0,0,0.5);}
+		.list .jiantouyou{right: 0px;}
+		.bianbai{background-color: white;}
+		.list .lunbotu img{float: left;}
+		.active{background-color: white;}
+	</style>
+
+
+</head>
+<body>
+<div class="list">
+<div class="lunbotu">
+<img src="img/01.jpg"/>
+<img src="img/02.jpg"/>
+<img src="img/03.jpg"/>
+<img src="img/04.jpg"/>
+<img src="img/05.jpg"/>
+</div>
+<ul class="biaoji">
+	<li class="bianbai">   </li>
+	<li>   </li>
+	<li>   </li>
+	<li>   </li>
+	<li>   </li>
+</ul>	
+<div class="jiantouzuo"><img src="img/arrowl.png"></div>
+<div class="jiantouyou"><img src="img/arrowr.png"></div>
+</div>
+</body>
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript">
+		$(".biaoji li").mouseover(function(){
+			clearInterval(timeplay);
+			index=$(this).index();
+			$(this).addClass("bianbai").siblings().removeClass("bianbai");
+			$(".lunbotu img").eq(index).show().siblings(".lunbotu img").hide();
+		}).mouseout(function(){
+			time=index;
+			shijian();
+		});
+		shijian();
+ var time=0;
+		function shijian(){
+               
+                timeplay=setInterval(function(){
+                   
+                   if(time<5){time++;
+                   	
+               	  $(".biaoji li").eq(time).addClass("bianbai").siblings().removeClass("bianbai");
+                  $(".lunbotu img").eq(time).show().siblings(".lunbotu img").hide(); 
+                  ;
+                  
+              }
+                  else{ 
+                  $(".biaoji li").eq(0).addClass("bianbai").siblings().removeClass("bianbai");
+                  $(".lunbotu img").eq(0).show().siblings(".lunbotu img").hide(); 
+                  time=1;      	              	
+                 
+                  }
+                },1000);
+
+		}
+		$(".jiantouzuo img").mouseover(function(){
+			clearInterval(timeplay);
+		})
+		$(".jiantouyou img").mouseover(function(){
+			clearInterval(timeplay);
+		})
+		$(".jiantouzuo img").click(function(){
+			// alert("s");
+			time--;
+			
+			if (time!=-1) {
+               	  $(".biaoji li").eq(time).addClass("bianbai").siblings().removeClass("bianbai");
+                  $(".lunbotu img").eq(time).show().siblings(".lunbotu img").hide(); }else{time=4;
+                  	$(".biaoji li").eq(time).addClass("bianbai").siblings().removeClass("bianbai");
+                  $(".lunbotu img").eq(time).show().siblings(".lunbotu img").hide(); 
+                
+                  	
+                  }
+
+		}).mouseout(function(){
+			// time=index;
+			shijian();
+		});
+		$(".jiantouyou img").click(function(){
+			time++;
+			
+               	  if (time!=5) {
+               	  $(".biaoji li").eq(time).addClass("bianbai").siblings().removeClass("bianbai");
+                  $(".lunbotu img").eq(time).show().siblings(".lunbotu img").hide(); }else{time=0;
+                  	               	  $(".biaoji li").eq(time).addClass("bianbai").siblings().removeClass("bianbai");
+                  $(".lunbotu img").eq(time).show().siblings(".lunbotu img").hide(); 
+                  }
+		}).mouseout(function(){
+			// time=index;
+			shijian();
+			});		
+
+	</script>
+</html>
