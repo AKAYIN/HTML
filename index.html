@@ -32,12 +32,11 @@
 <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-		$(".dian li").mouseover(function(){
+		$(".dian li").click(function(){
 			clearInterval(timeplay);
 			index=$(this).index();
 			$(this).addClass("active").siblings().removeClass("active");
 			$(".tu ul").animate({left:-_wid*index});
-		}).mouseout(function(){
 			time=index;
 			shijian();
 		});
